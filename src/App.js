@@ -1,43 +1,14 @@
-import {Route,Routes} from "react-router-dom";
-import Home from "./component/Home";
-import Info from "./component/Info";
-import User from "./component/User";
-import BoardContent from "./component/BoardContent";
-import Board from "./component/Board";
-import Header from "./layout/Header";
-import MyPage from "./component/MyPage";
+import A from "./component3/A"
+import B from "./component3/B"
+import { UserProvider } from "./context/ContextAPI2"
 
+function App () {
 
-
-function App() {
-  return (
-   <Routes>
-
-    <Route element={<Header/>}>
-      <Route path="/" element={<Home/>} />
-      {/* 쿼리스트링  */}
-      <Route path="/user" element={<User/>} />
-      {/* 쿼리파라미터 - 추가설정 */}
-      <Route path="/info/:a/:b" element={<Info/>} />
-    </Route>
-
-    {/* board, boardContent분기 */}
-    {/* 
-    <Route path ="/board" element={<Board/>}/>
-    <Route path ="/board/:num" element={<BoardContent/>}/>
-     */}
-
-     {/* board의 자식 boardContent 중첩라우터 */}
-     {/* Outlet컴포넌트 추가 */}
-     <Route path="/board" element={<Board/>}>
-      <Route path=":num" element={<BoardContent/>}/>
-     </Route>
-
-    {/* navigate 컴포넌트 */}
-     <Route path="mypage" element={<MyPage/>}/>
-    
-   </Routes>
+  return(
+    <UserProvider>
+      <A/>
+      <B/>
+    </UserProvider>
   )
 }
-
-export default App;
+export default App
