@@ -8,7 +8,7 @@ const UserContext = createContext({
   }
 });
 
-//2.Provider 함수 선언
+//2.Provider 함수 선언 -> app.js 에서 생성해도 되는데 유지 보수 관리 의 용이성을 위해 분리시켯다.
 //매개값은 반드시 children
 const UserProvider = ({children}) => {
 
